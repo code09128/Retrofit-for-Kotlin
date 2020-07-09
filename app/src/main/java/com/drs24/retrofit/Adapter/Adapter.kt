@@ -5,4 +5,5 @@ package com.drs24.retrofit.Adapter
  */
 
 class Adapter() {
+
 }

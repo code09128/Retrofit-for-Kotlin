@@ -16,13 +16,11 @@ data class HospitalDepartmentResponse(val result: List<DepartmentData>,val statu
 data class DepartmentData(val departmentCode: String, val department: String ,val divisions: List<DivisionsData>)
 data class DivisionsData(val dept: String, val dnam: String)
 
-
 data class LoginResponse(val Status: String, val Result: ResultData)
 data class ResultData(val AuthorizationToken: String)
 
-
-
 data class DownloadListResponse(val Status: String, val Result: List<ListData>)
+
 data class ListData(
     val Id: Int,
     val MedicalRecordNo: String,

@@ -10,6 +10,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -32,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 //        })
 
         button.setOnClickListener {
-            retrofitClient.getService().downList(TOKEN,DownloadListRequest("all"))
+            retrofitClient.getService(this).downList(TOKEN,DownloadListRequest("all"))
                 .enqueue(object : Callback<DownloadListResponse> {
                     override fun onFailure(call: Call<DownloadListResponse>, t: Throwable) {
                     }
@@ -60,7 +61,7 @@ class MainActivity : AppCompatActivity() {
 //            }
 //        })
 
-        retrofitClient.getService().hospitalDepartment("CA").enqueue(object : Callback<HospitalDepartmentResponse>{
+        retrofitClient.getService(this).hospitalDepartment("CA").enqueue(object : Callback<HospitalDepartmentResponse>{
             override fun onFailure(call: Call<HospitalDepartmentResponse>, t: Throwable) {
             }
 
@@ -71,7 +72,6 @@ class MainActivity : AppCompatActivity() {
                 Log.e("response", "" + response.code())
                 Log.e("HospitalDepartmentStatus", "" + status)
                 Log.e("HospitalDepartmentResponse", "" + dataList)
-
             }
         })
     }
